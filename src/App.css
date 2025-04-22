@@ -1,0 +1,28 @@
+body {
+  background-image: url('download (1).jpg');
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-attachment: fixed;
+  background-position: center;
+  min-height: 100vh; /* Ensures the background covers the full viewport height */
+  display: flex; /* Enables flexbox for centering content */
+  flex-direction: column; /* Aligns content vertically */
+  justify-content: center; /* Centers content vertically */
+  align-items: center; /* Centers content horizontally */
+  margin: 0; /* Removes default margin */
+  padding: 0; /* Removes default padding */
+  color: white;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+img.logo {
+  max-width: 100%; /* Ensures the image scales responsively */
+  height: auto; /* Maintains aspect ratio */
+  border-radius: 5px;
+  height: 40%;
+}
