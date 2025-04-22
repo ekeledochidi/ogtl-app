@@ -24,5 +24,4 @@ img.logo {
   max-width: 100%; /* Ensures the image scales responsively */
   height: auto; /* Maintains aspect ratio */
   border-radius: 5px;
-  height: 40%;
 }
