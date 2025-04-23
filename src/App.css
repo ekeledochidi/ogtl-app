@@ -1,5 +1,5 @@
 body {
-  background-color: rgba(0, 0, 0, 0.8); /* Adds a darker semi-transparent black background for better contrast */
+  background-image: url('download (1).jpg');
   background-size: cover;
   background-repeat: no-repeat;
   background-attachment: fixed;
@@ -25,6 +25,7 @@ img.logo {
   max-width: 100%; /* Ensures the image scales responsively */
   height: auto; /* Maintains aspect ratio */
   border-radius: 5px;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.5); /* Adds a shadow for better separation from the background */
 }
 
 .video-background {
@@ -35,7 +36,7 @@ img.logo {
   height: 100%;
   object-fit: cover; /* Ensures the video covers the entire background */
   z-index: -1; /* Places the video behind other content */
-  filter: blur(1px); /* Blurs the video for a softer background effect */
+  filter: blur(8px); /* Blurs the video for a softer background effect */
   opacity: 0.7; /* Reduces the opacity for a more subtle effect */
   pointer-events: none; /* Prevents interaction with the video */
   transition: opacity 0.5s ease; /* Smooth transition for opacity changes */
