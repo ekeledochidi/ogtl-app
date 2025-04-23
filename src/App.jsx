@@ -26,6 +26,9 @@ function App() {
 
   return (
     <div className="container-fluid">
+      <video autoPlay loop muted playsInline className="video-background">
+        <source src="videobg.mp4" type="video/mp4" />
+      </video>
       <div className="landing-page">
         <div className="col-lg-6 col-sm-12 col-6" style={{ float: 'left', padding: '200px' }}>
           <h4>Welcome to our website!</h4>
@@ -50,7 +53,7 @@ function App() {
         </div>
 
         <div className="col-lg-6 col-sm-12" style={{ float: 'left', padding: '50px' }}>
-          <img src="technology.jpg" className="logo" alt="Vite logo" />
+          <img src="AI.jpg" className="logo" alt="Vite logo" />
         </div>
       </div>
     </div>
