@@ -1,5 +1,6 @@
 body {
   background-color: rgba(0, 0, 0, 0.6); /* Adds a semi-transparent black background for better contrast */
+  background-color: rgba(0, 0, 0, 0.6); /* Adds a semi-transparent black background for better contrast */
   background-size: cover;
   background-repeat: no-repeat;
   background-attachment: fixed;
@@ -12,6 +13,7 @@ body {
   margin: 0; /* Removes default margin */
   padding: 0; /* Removes default padding */
   color: white;
+  backdrop-filter: blur(8px); /* Applies a blur effect to the background */
   backdrop-filter: blur(8px); /* Applies a blur effect to the background */
 }
 

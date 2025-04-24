@@ -25,20 +25,10 @@ function App() {
   };
 
   return (
-    <div>
-      <div class="sticky">
-       <ul class="horizontal">
-          <img src="Direction.jpg" className="logoo" alt="Vite logo" />
-          <h4 style={{float: 'left', color: 'black', padding: '6px'}}>Sw</h4>
-          <li style={{float: 'right'}}><a href="mailto:ekeledochidiebere@gmail.comil"><i class="fa-solid fa-envelope" style={{fontSize: '22px', paddingTop: '5px'}}></i></a></li>
-       </ul>
-      </div>
-      <video autoPlay loop muted playsInline className="video-background">
-        <source src="videobg.mp4" type="video/mp4" />
-      </video>
-      <div className="container-fluid">
-        <div className="col-lg-6 col-sm-12 col-6" style={{ float: 'left', padding: '190px' }}>
-          <h3>Welcome to our website!</h3>
+    <div className="container-fluid">
+      <div className="landing-page">
+        <div className="col-lg-6 col-sm-12 col-6" style={{ float: 'left', padding: '200px' }}>
+          <h4>Welcome to our website!</h4>
           <form onSubmit={handleSubmit}>
             <p className='write'>Please Enter your name</p>
             <input
