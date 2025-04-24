@@ -1,5 +1,5 @@
 body {
-  background-image: url('download (1).jpg');
+  background-color: rgba(0, 0, 0, 0.6); /* Adds a semi-transparent black background for better contrast */
   background-size: cover;
   background-repeat: no-repeat;
   background-attachment: fixed;
@@ -12,6 +12,7 @@ body {
   margin: 0; /* Removes default margin */
   padding: 0; /* Removes default padding */
   color: white;
+  backdrop-filter: blur(8px); /* Applies a blur effect to the background */
 }
 
 * {
@@ -24,5 +25,61 @@ img.logo {
   max-width: 100%; /* Ensures the image scales responsively */
   height: auto; /* Maintains aspect ratio */
   border-radius: 5px;
-  height: 40%;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.5); /* Adds a shadow for better separation from the background */
+}
+img.logo:hover {
+  transform: scale(1.05); /* Slightly enlarges the image on hover */
+  transition: transform 0.3s ease; /* Smooth transition for the hover effect */
+}
+img.logoo {
+  width: 70px; /* Sets a fixed width for the logo */
+  float: left;
+}
+
+div.sticky {
+  position: sticky;
+  top: 0;
+  z-index: 1;
+  width: 100%;
+}
+ul.horizontal {
+  list-style-type: none; /* list-style-image, for image */
+  background-color: #E6E6FA;
+  padding: 0;
+  margin: 0;
+  overflow: hidden;
+  opacity: 0.97;
+}
+ul.horizontal li {
+  float: left;
+}
+ul.horizontal li a {
+  display: inline-block;
+  color: black;
+  text-align: left;
+  padding: 9px 20px;
+  text-decoration: none;
+}
+ul.horizontal li a:hover {
+  cursor: pointer;
+}
+
+.video-background {
+  position: absolute;
+  right: 0;
+  bottom: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover; /* Ensures the video covers the entire background */
+  z-index: -1; /* Places the video behind other content */
+  filter: blur(1px); /* Blurs the video for a softer background effect */
+  opacity: 0.7; /* Reduces the opacity for a more subtle effect */
+  transition: opacity 0.5s ease-in-out; /* Smooth transition for opacity changes */
+}
+
+p.write{
+  font-size: 17px;
+  color: white;
+  text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.7); /* Adds a subtle shadow for better contrast */
+  background-color: rgba(0, 0, 0, 0.5); /* Adds a semi-transparent background for better contrast */
 }
