@@ -25,6 +25,7 @@ img.logo {
   max-width: 100%; /* Ensures the image scales responsively */
   height: auto; /* Maintains aspect ratio */
   border-radius: 5px;
+  margin-top: 5%;
   box-shadow: 0 4px 15px rgba(0, 0, 0, 0.5); /* Adds a shadow for better separation from the background */
 }
 img.logo:hover {
@@ -81,5 +82,24 @@ p.write{
   font-size: 17px;
   color: white;
   text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.7); /* Adds a subtle shadow for better contrast */
+}
+
+div.welcome {
+  text-align: center;
+  font-size: 25px;
+  font-weight: bold;
+  margin-top: 5%;
+  padding: 25px 4px ;
+  float: left;
+  color: white;
+  text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.7); /* Adds a subtle shadow for better contrast */
   background-color: rgba(0, 0, 0, 0.5); /* Adds a semi-transparent background for better contrast */
+}
+button.getstarted {
+  border: none; /* Removes default border */
+  background-color: #E6E6FA;
+}
+button.getstarted:hover {
+  background-color: #D8BFD8; /* Changes background color on hover */
+  transition: background-color 0.3s ease; /* Smooth transition for the hover effect */
 }

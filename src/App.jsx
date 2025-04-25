@@ -28,7 +28,7 @@ function App() {
     <div>
       <div class="sticky">
        <ul class="horizontal">
-          <img src="Direction.jpg" className="logoo" alt="Vite logo" />
+          <img src="Direction.jpg" className="logoo" alt="web logo" />
           <h4 style={{float: 'left', color: 'black', padding: '6px'}}>Sw</h4>
           <li style={{float: 'right'}}><a href="mailto:ekeledochidiebere@gmail.comil"><i class="fa-solid fa-envelope" style={{fontSize: '22px', paddingTop: '5px'}}></i></a></li>
        </ul>
@@ -37,7 +37,7 @@ function App() {
         <source src="videobg.mp4" type="video/mp4" />
       </video>
       <div className="container-fluid">
-        <div className="col-lg-6 col-sm-12 col-6" style={{ float: 'left', padding: '190px' }}>
+        <div className="welcome col-xxl-6 col-xl-6 col-lg-6 col-md-6 col-sm-12 col-12">
           <h3>Welcome to our website!</h3>
           <form onSubmit={handleSubmit}>
             <p className='write'>Please Enter your name</p>
@@ -49,7 +49,7 @@ function App() {
               onChange={handleChange}
               style={{padding: '5px', borderRadius: '5px', border: '0px'}}
             />
-            <button type="submit" style={{marginLeft: '15px', backgroundColor: '#D8BFD8'}}>Submit</button>
+            <button type="submit" style={{marginLeft: '15px', backgroundColor: '#D8BFD8', padding: '5px 15px', fontSize: '20px'}}>Submit <i class="fas fa-paper-plane"></i></button>
           </form>
           <br />
           <p className='write'>
@@ -57,11 +57,11 @@ function App() {
             through our content, select the content of your interest, and add to your timeline.
             Enjoy the view {formData.name}!
           </p>
-          <button onClick={navigateToProductList} style={{backgroundColor: '#E6E6FA'}}>Get Started</button>
+          <button onClick={navigateToProductList} className='getstarted'>Get Started</button>
         </div>
 
-        <div className="col-lg-6 col-sm-12" style={{ float: 'left', padding: '50px' }}>
-          <img src="AI.jpg" className="logo" alt="Vite logo" />
+        <div className="col-xxl-6 col-xl-6 col-lg-6 col-md-6 col-sm-12 col-12" style={{ float: 'left', padding: '50px' }}>
+          <img src="AI.jpg" className="logo" alt="AI logo" />
         </div>
       </div>
     </div>
