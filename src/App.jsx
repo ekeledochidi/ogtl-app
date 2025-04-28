@@ -2,6 +2,7 @@ import { useState } from 'react';
 import { BrowserRouter as Router, Route, Routes, useNavigate } from 'react-router-dom';
 import './App.css';
 import ProductList from './ProductList';
+import axios from 'axios';
 
 function App() {
   const navigate = useNavigate();
@@ -18,10 +19,15 @@ function App() {
     setFormData({ ...formData, [e.target.name]: e.target.value });
   };
 
-  const handleSubmit = (e) => {
+  const handleSubmit = async (e) => {
     e.preventDefault();
-    console.log(formData);
-    alert(`Hello ${formData.name}, welcome to our website!`);
+    try {
+      const response = await axios.post('http://localhost:5000/signup', formData);
+      alert(response.data); // Success message from the server
+    } catch (error) {
+      console.error('Error saving user:', error);
+      alert('Failed to save user');
+    }
   };
 
   return (
