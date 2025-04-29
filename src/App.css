@@ -35,6 +35,7 @@ img.logo:hover {
 img.logoo {
   width: 70px; /* Sets a fixed width for the logo */
   float: left;
+  padding: 10px 15px;
 }
 
 div.sticky {
@@ -42,6 +43,7 @@ div.sticky {
   top: 0;
   z-index: 1;
   width: 100%;
+  padding: 15px 150px; /* Adds padding for spacing */
 }
 ul.horizontal {
   list-style-type: none; /* list-style-image, for image */
@@ -50,6 +52,7 @@ ul.horizontal {
   margin: 0;
   overflow: hidden;
   opacity: 0.97;
+  border-radius: 5px; /* Adds rounded corners */
 }
 ul.horizontal li {
   float: left;
@@ -102,4 +105,16 @@ button.getstarted {
 button.getstarted:hover {
   background-color: #D8BFD8; /* Changes background color on hover */
   transition: background-color 0.3s ease; /* Smooth transition for the hover effect */
+}
+
+#myModal {
+  color: black;
+}
+
+.footer-container {
+  text-align: center;
+  padding: 20px;
+  margin: 0;
+  color: white;
+  
 }
