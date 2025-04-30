@@ -1,15 +1,18 @@
+import React from 'react';
+import './ProductList.css'; // Assuming you have a CSS file for styling
 
 function ProductList() {
     return (
         <div className="product-list">
-            <h2>Product List</h2>
-            <ul>
-                <li>Product 1</li>
-                <li>Product 2</li>
-                <li>Product 3</li>
-                <li>Product 4</li>
-                <li>Product 5</li>
+           <div className='navbar'>
+            <ul className='navbar-list'>
+                <li>Switch</li>
+                <li>About</li>
+                <li>Selection</li>
+                <li>Timeline</li>
+                <li><i class="fa-solid fa-envelope"></i></li>
             </ul>
+           </div>
         </div>
     );
 }

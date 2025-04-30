@@ -1,0 +1,37 @@
+body {
+    background-color: aliceblue; /* Sets a light blue background color */
+    background-size: cover; /* Ensures the background covers the entire area */
+    color: black;
+    min-height: 100vh; /* Ensures the background covers the full viewport height */
+    display: flex; /* Enables flexbox for centering content */
+    flex-direction: column; /* Aligns content vertically */
+    justify-content: center; /* Centers content vertically */
+    align-items: center; /* Centers content horizontally */
+    margin: 0; /* Removes default margin */
+    padding: 0; /* Removes default padding */
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+  }
+
+ div.navbar {
+    top: 0; /* Positions it at the top */
+    z-index: 1; /* Ensures it stays above other content */
+    width: 100%; /* Full width */
+ }
+
+  ul.navbar-list {
+    list-style-type: none; /* list-style-image, for image */
+    padding: 0;
+    margin: 0;
+    overflow: hidden;
+    opacity: 0.97;
+  }
+  ul.navbar-list li {
+    float: left;
+    padding: 10px 15px; /* Adds padding for spacing */
+  }
+ 
