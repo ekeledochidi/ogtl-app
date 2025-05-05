@@ -1,4 +1,4 @@
-body {
+.background {
   background-color: rgba(0, 0, 0, 0.6); /* Adds a semi-transparent black background for better contrast */
   background-size: cover;
   background-repeat: no-repeat;
@@ -113,7 +113,9 @@ button.getstarted:hover {
 
 .footer-container {
   text-align: center;
-  padding: 20px;
+  padding: 10px 250px;
   margin: 0;
-  color: white;
+  color: black;
+  background-color:#e29fef;
+  border-radius: 7px; /* Adds rounded corners */
 }

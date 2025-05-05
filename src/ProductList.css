@@ -1,14 +1,11 @@
-body {
-    background-color: aliceblue; /* Sets a light blue background color */
-    background-size: cover; /* Ensures the background covers the entire area */
+.product-list {
     color: black;
-    min-height: 100vh; /* Ensures the background covers the full viewport height */
-    display: flex; /* Enables flexbox for centering content */
-    flex-direction: column; /* Aligns content vertically */
-    justify-content: center; /* Centers content vertically */
-    align-items: center; /* Centers content horizontally */
     margin: 0; /* Removes default margin */
     padding: 0; /* Removes default padding */
+    width: 100%;
+    background-size: cover;
+    background-position: center;
+    width: 100%;
 }
 
 * {
@@ -35,3 +32,12 @@ body {
     padding: 10px 15px; /* Adds padding for spacing */
   }
  
+  div.start {
+    background-image: url("download (2).jpg");
+    background-size: cover;
+    padding: 200px 50px;
+    margin-bottom: 15px;
+    width: 100%;
+    height: 420px;
+    transition: background-image 2s ease-in-out;
+}

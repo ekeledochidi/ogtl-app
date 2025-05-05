@@ -1,7 +1,7 @@
 import { useState } from 'react';
 import { BrowserRouter as Router, Route, Routes, useNavigate } from 'react-router-dom';
 import './App.css';
-import ProductList from './ProductList';
+import ProductList from './Productlist';
 import axios from 'axios';
 
 
@@ -32,48 +32,18 @@ function App() {
   };
 
   return (
-    <div>
+    <div className='background'>
       <div class="sticky">
        <ul class="horizontal">
           <img src="Direction.jpg" className="logoo" alt="web logo" />
           <h5 style={{float: 'left', color: 'black', padding: '10px 5px'}}>Sw <span style={{fontSize: '12px'}}>-more than just a blog.</span></h5>
-          <li style={{float: 'right', color: 'black'}}>ENG<a data-bs-toggle="modal" data-bs-target="#myModal"><i class="fa-solid fa-envelope" style={{fontSize: '22px', paddingTop: '5px'}}></i></a></li>
+          <li style={{float: 'right', color: 'black'}}>ENG<a href="mailto:ekeledochidiebere@gmail.com"><i class="fa-solid fa-envelope" style={{fontSize: '22px', paddingTop: '5px'}}></i></a></li>
        </ul>
       </div>
       
       <video autoPlay loop muted playsInline className="video-background">
         <source src="videobg.mp4" type="video/mp4" />
       </video>
-
-      
-      <div class="modal fade" id="myModal">
-       <div class="modal-dialog">
-           <div class="modal-content">
-    
-               
-               <div class="modal-header">
-                   <p>Contact info</p>
-                   <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
-               </div>
-
-               
-               <div class="modal-body">
-                   <i class="fa-solid fa-mobile"></i>
-                   <li>+234-8184207769</li>
-                   <li>Mobile Number</li>
-                   <i class="fa-solid fa-envelope"></i>
-                   <li>ekeledochidiebere@gmail.com</li>
-                   <li>E-mail</li>
-               </div>
-
-               
-               <div class="modal-footer">
-                   <button type="button" class="btn btn-danger" data-bs-dismiss="modal">Close</button>
-               </div>
-
-           </div>
-       </div>
-      </div>
 
       <div className="container-fluid">
         <div className="welcome col-xxl-6 col-xl-6 col-lg-6 col-md-6 col-sm-12 col-12">
@@ -106,7 +76,6 @@ function App() {
 
       <div className='footer-container'>
         <p style={{fontWeight: 'bold'}}>Powered by CHIDI</p>
-        <p style={{fontStyle: 'italic'}}>-All rights reserved</p>
       </div>
     </div>
   );
