@@ -18,6 +18,8 @@
     top: 0; /* Positions it at the top */
     z-index: 1; /* Ensures it stays above other content */
     width: 100%; /* Full width */
+    margin: 0; /* Removes default margin */
+    padding: 0; /* Removes default padding */
  }
 
   ul.navbar-list {
@@ -26,6 +28,8 @@
     margin: 0;
     overflow: hidden;
     opacity: 0.97;
+    background-color: #E6E6FA;
+    width: 100%;
   }
   ul.navbar-list li {
     float: left;
@@ -38,6 +42,16 @@
     padding: 200px 50px;
     margin-bottom: 15px;
     width: 100%;
-    height: 420px;
+    height: 550px;
+    color: white;
     transition: background-image 2s ease-in-out;
+    font-weight: bold;
+    font-size: 20px;
+}
+div.newsblog {
+  padding: 10px 200px;
+}
+
+div.mover {
+  padding: 0 20px;
 }

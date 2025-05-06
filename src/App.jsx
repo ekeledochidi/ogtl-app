@@ -58,7 +58,7 @@ function App() {
               onChange={handleChange}
               style={{padding: '5px', borderRadius: '5px', border: '0px'}}
             />
-            <button type="submit" style={{marginLeft: '15px', backgroundColor: '#D8BFD8', padding: '5px 15px', fontSize: '20px'}}>Submit <i class="fas fa-paper-plane"></i></button>
+            <button type="submit" style={{marginLeft: '15px', backgroundColor: '#D8BFD8', padding: '5px 15px', fontSize: '20px', borderRadius: '5px'}}>Submit <i class="fas fa-paper-plane"></i></button>
           </form>
           <br />
           <p className='write'>
