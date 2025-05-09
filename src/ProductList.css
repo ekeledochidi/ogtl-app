@@ -55,3 +55,13 @@ div.newsblog {
 div.mover {
   padding: 0 20px;
 }
+
+img.product-image {
+    width: 80%;
+    height: auto;
+    border-radius: 10px;
+    transition: transform 0.2s; /* Animation for hover effect */
+}
+img.product-image:hover {
+    transform: scale(1.05); /* Scale up on hover */
+}

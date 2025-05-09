@@ -27,6 +27,71 @@ function ProductList() {
         backgroundStyle();
     }, []); // Empty dependency array ensures this runs only once after the component mounts
 
+    const NewsArray = [
+        {
+            Category: [
+                {
+                    topic: "Sport",
+                    image: "Soccer.jpg",
+                    description: "Soccer is a team sport played between two teams of eleven players with a spherical ball. It is played by 250 million players in over 200 countries, making it the world's most popular sport.",
+                }
+            ],
+            News: [
+                {
+                    name: "Ucl",
+                    image: "UCL.jpg",
+                    description: "The UEFA Champions League (UCL) is an annual club football competition organized by the UEFA and contested by top-division European clubs. It is one of the most prestigious tournaments in the world and the most prestigious club competition in European football.",
+                },
+                {
+                    name: "Epl",
+                    image: "EPL.jpg",
+                    description: "The English Premier League (EPL) is the top tier of English football, featuring 20 clubs. It is known for its competitive nature and attracts top talent from around the world.",
+                }
+            ]
+        },
+        {
+            Category: [
+                {
+                    topic: "Food",
+                    image: "food.jpg",
+                    description: "Food is any substance consumed to provide nutritional support for the body. It is usually of plant or animal origin and contains essential nutrients, such as carbohydrates, fats, proteins, vitamins, or minerals.",
+                }
+            ],
+            News: [
+                {
+                    name: "Cuisine",
+                    image: "eat1.jpg",
+                    description: "Cuisine refers to a style or method of cooking, especially as characteristic of a particular country or region. It encompasses the ingredients, techniques, and traditions used in food preparation.",
+                },
+                {
+                    name: "Recipe",
+                    image: "drink.jpg",
+                    description: "A recipe is a set of instructions for preparing a particular dish, including a list of the ingredients required. Recipes can vary widely in complexity and style.",
+                }
+            ]
+        },{
+            Category: [
+                {
+                    topic: "Social Media",
+                    image: "SocialMedia.jpg",
+                    description: "Social media refers to websites and applications that enable users to create and share content or participate in social networking. It has transformed the way people communicate and interact online.",
+                }
+            ],
+            News: [
+                {
+                    name: "Instagram",
+                    image: "IG.jpg",
+                    description: "Instagram is a photo and video-sharing social networking service owned by Facebook. It allows users to share photos and videos, follow other users, and engage with content through likes and comments.",
+                },
+                {
+                    name: "TikTok",
+                    image: "Tiktok.jpg",
+                    description: "TikTok is a social media platform for creating, sharing, and discovering short music videos. It has gained immense popularity for its user-generated content and viral challenges.",
+                }
+            ]
+        }
+    ];
+
     return (
         <div className="product-list">
             <div className="navbar">
@@ -135,6 +200,19 @@ function ProductList() {
             </div>
 
             <h4>News article</h4>
+
+            <div className='product-grid container-fluid'>
+                <div className="row gx-4">
+                {NewsArray.map((item, index) => (
+                    <div key={index} className="product-card col-xl-4 col-lg-4 col-md-4 col-sm-12 col-12">
+                        <img src={item.Category[0].image} alt={item.Category[0].topic} className="product-image" />
+                        <h5>{item.Category[0].topic}</h5>
+                        <p>{item.Category[0].description}</p>
+                    </div>
+                ))}
+                </div>
+            </div>
+
         </div>
     );
 }
