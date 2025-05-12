@@ -3,8 +3,8 @@ import React from 'react';
 
 function Footer() {
     return(
-        <div>
-            <div>
+        <div className='container-fluid px-3' >
+            <div className='col-xl-3 col-lg-3 col-md-3 col-sm-12 col-12' style={{float: 'left'}}>
                 <p>Sideways -yes! Sw.</p>
                 <p>All rights reserved</p>
                 <p>2025</p>
@@ -17,9 +17,9 @@ function Footer() {
                 </ul>
             </div>
 
-            <div>Expore</div>
+            <div className='col-xl-3 col-lg-3 col-md-3 col-sm-12 col-12' style={{float: 'left'}}>Expore</div>
 
-            <div>
+            <div className='col-xl-3 col-lg-3 col-md-3 col-sm-12 col-12' style={{float: 'left'}}>
                 <p>For Users</p>
                 <ul>
                     <li>Documentation</li>
@@ -28,7 +28,7 @@ function Footer() {
                 </ul>
             </div>
 
-            <div>
+            <div className='col-xl-3 col-lg-3 col-md-3 col-sm-12 col-12' style={{float: 'left'}}>
                 <p>Company</p>
                 <ul>
                     <li>About</li>

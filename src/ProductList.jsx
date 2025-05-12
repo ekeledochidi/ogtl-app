@@ -1,12 +1,20 @@
-import React, { useEffect } from 'react';
+import React, { useState, useEffect } from 'react';
+import { useDispatch, useSelector } from 'react-redux';
 import './ProductList.css'; // Assuming you have a CSS file for styling
-// Import Bootstrap CSS
-import 'bootstrap/dist/css/bootstrap.min.css';
-
-// Import Bootstrap JavaScript
-import 'bootstrap/dist/js/bootstrap.bundle.min.js';
+import CartItem from './Timeline'; 
+import { addItem } from './CartSlice';
+import Footer from './Footer';
 
 function ProductList() {
+    const [addedToCart, setAddedToCart] = useState([]);
+    const dispatch = useDispatch();
+    const cart = useSelector((state) => state.cart.items);
+    
+    const handleAddToCart = (product) => {
+        dispatch(addItem(product));
+        setAddedToCart([...addedToCart, product.topic]);
+    };
+
     const backgroundStyle = () => {
         let background = document.querySelector(".start");
         let slideIndex = 0;
@@ -208,11 +216,17 @@ function ProductList() {
                         <img src={item.Category[0].image} alt={item.Category[0].topic} className="product-image" />
                         <h5>{item.Category[0].topic}</h5>
                         <p>{item.Category[0].description}</p>
+                        {cart.some(cartItem => cartItem.topic === item.Category[0].topic) ? (
+                            <button className="product-button added-to-cart" disabled={addedToCart.includes(item.Category[0].topic)}>Added to Cart</button>
+                            ) : (
+                            <button className="product-button" onClick={() => handleAddToCart(item.Category[0])}>Add to Cart</button>
+                        )}
                     </div>
                 ))}
                 </div>
             </div>
 
+            <Footer />
         </div>
     );
 }
