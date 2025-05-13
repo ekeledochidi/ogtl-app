@@ -1,7 +1,8 @@
 import React, { useState, useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
+import { BrowserRouter as Router, Route, Routes, useNavigate } from 'react-router-dom';
 import './ProductList.css'; // Assuming you have a CSS file for styling
-import CartItem from './Timeline'; 
+import Timeline from './Timeline'; 
 import { addItem } from './CartSlice';
 import Footer from './Footer';
 
@@ -10,9 +11,13 @@ function ProductList() {
     const dispatch = useDispatch();
     const cart = useSelector((state) => state.cart.items);
     
-    const handleAddToCart = (product) => {
-        dispatch(addItem(product));
-        setAddedToCart([...addedToCart, product.topic]);
+    const handleAddToCart = (item) => {
+        const cartItem = {
+            category: item.Category, // Add the Category array
+            news: item.News,         // Add the News array
+        };
+        dispatch(addItem(cartItem)); // Dispatch the combined object to the Redux store
+        setAddedToCart([...addedToCart, ...item.Category.map((cat) => cat.topic)]); // Track added topics
     };
 
     const backgroundStyle = () => {
@@ -34,6 +39,12 @@ function ProductList() {
     useEffect(() => {
         backgroundStyle();
     }, []); // Empty dependency array ensures this runs only once after the component mounts
+
+    const navigate = useNavigate();
+
+    const navigateToTimeline = () => {
+        navigate('/Timeline');
+    };
 
     const NewsArray = [
         {
@@ -107,7 +118,7 @@ function ProductList() {
                     <li>Switch</li>
                     <li>About</li>
                     <li>Selection</li>
-                    <li>Timeline</li>
+                    <li onClick={navigateToTimeline}>Timeline</li>
                     <li><i className="fa-solid fa-envelope"></i></li>
                 </ul>
             </div>
@@ -213,16 +224,26 @@ function ProductList() {
                 <div className="row gx-4">
                 {NewsArray.map((item, index) => (
                     <div key={index} className="product-card col-xl-4 col-lg-4 col-md-4 col-sm-12 col-12">
-                        <img src={item.Category[0].image} alt={item.Category[0].topic} className="product-image" />
-                        <h5>{item.Category[0].topic}</h5>
-                        <p>{item.Category[0].description}</p>
-                        {cart.some(cartItem => cartItem.topic === item.Category[0].topic) ? (
-                            <button className="product-button added-to-cart" disabled={addedToCart.includes(item.Category[0].topic)}>Added to Cart</button>
-                            ) : (
-                            <button className="product-button" onClick={() => handleAddToCart(item.Category[0])}>Add to Cart</button>
-                        )}
+                        {item.Category.map((category, catIndex) => (
+                            <div key={catIndex}>
+                                <img src={category.image} alt={category.topic} className="product-image" />
+                                <h5>{category.topic}</h5>
+                                <p>{category.description}</p>
+                                {cart.some((cartItem) =>
+                                    cartItem.category.some((cat) => cat.topic === category.topic)
+                                 ) ? (
+                                    <button className="product-button added-to-cart" disabled>
+                                        Added to Cart
+                                    </button>
+                                ) : (
+                                    <button className="product-button" onClick={() => handleAddToCart(item)}>
+                                        Add to Cart
+                                    </button>
+                                )}
+                            </div>
+                        ))}
                     </div>
-                ))}
+        ))}
                 </div>
             </div>
 
@@ -232,3 +253,14 @@ function ProductList() {
 }
 
 export default ProductList;
+
+export function AppWrapper() {
+  return (
+    <Router>
+      <Routes>
+        <Route path="/" element={<ProductList />} />
+        <Route path="/Timeline" element={<Timeline />} />
+      </Routes>
+    </Router>
+  );
+}

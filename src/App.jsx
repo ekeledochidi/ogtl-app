@@ -2,6 +2,7 @@ import { useState } from 'react';
 import { BrowserRouter as Router, Route, Routes, useNavigate } from 'react-router-dom';
 import './App.css';
 import ProductList from './Productlist';
+import Timeline from './Timeline';
 import axios from 'axios';
 
 
@@ -87,6 +88,7 @@ function AppWrapper() {
       <Routes>
         <Route path="/" element={<App />} />
         <Route path="/product-list" element={<ProductList />} />
+        <Route path="/Timeline" element={<Timeline />} />
       </Routes>
     </Router>
   );
