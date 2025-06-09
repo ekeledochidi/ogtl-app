@@ -24,18 +24,100 @@ db.connect((err) => {
 });
 
 // API endpoint to handle user signup
+
 app.post('/signup', (req, res) => {
-  const { name } = req.body;
-  const query = 'INSERT INTO users (name) VALUES (?)';
-  db.query(query, [name], (err, result) => {
+  const { username, password } = req.body;
+  const query = 'INSERT INTO users (username, password) VALUES (?, ?)';
+  db.query(query, [username, password], (err, result) => {
     if (err) {
-      console.error('Error inserting data:', err);
-      res.status(500).send('Error saving user');
+      console.error('Error signing up user:', err);
+      res.status(500).send('Error signing up user');
     } else {
-      res.status(200).send('User saved successfully');
+      res.status(201).json({ success: true, message: 'User signed up successfully' });
     }
   });
 });
+// API endpoint to handle user sign-in
+app.post('/signin', (req, res) => {
+  const { username, password } = req.body;
+  const query = 'SELECT * FROM users WHERE username = ? AND password = ?';
+  db.query(query, [username, password], (err, results) => {
+    if (err) {
+      console.error('Error signing in user:', err);
+      res.status(500).send('Error signing in user');
+    } else if (results.length > 0) {
+      res.status(200).json({ success: true, message: 'User signed in successfully' });
+    } else {
+      res.status(401).json({ success: false, message: 'Invalid username or password' });
+    }
+  });
+});
+// API endpoint to handle user sign-out
+app.post('/signout', (req, res) => {
+  // Here you can handle sign-out logic, like clearing session data
+  // For simplicity, we just send a success response
+  res.status(200).json({ success: true, message: 'User signed out successfully' });
+});
+// API endpoint to get all users
+app.get('/users', (req, res) => {
+  const query = 'SELECT * FROM users';
+  db.query(query, (err, results) => {
+    if (err) {
+      console.error('Error fetching users:', err);
+      res.status(500).send('Error fetching users');
+    } else {
+      res.status(200).json(results);
+    }
+  });
+});
+// API endpoint to get a specific user by ID
+app.get('/users/:id', (req, res) => {
+  const userId = req.params.id;
+  const query = 'SELECT * FROM users WHERE id = ?';
+  db.query(query, [userId], (err, results) => {
+    if (err) {
+      console.error('Error fetching user:', err);
+      res.status(500).send('Error fetching user');
+    } else if (results.length > 0) {
+      res.status(200).json(results[0]);
+    } else {
+      res.status(404).send('User not found');
+    }
+  });
+});
+// API endpoint to update a user
+app.put('/users/:id', (req, res) => {
+  const userId = req.params.id;
+  const { username, password } = req.body;
+  const query = 'UPDATE users SET username = ?, password = ? WHERE id = ?';
+  db.query(query, [username, password, userId], (err, result) => {
+    if (err) {
+      console.error('Error updating user:', err);
+      res.status(500).send('Error updating user');
+    } else if (result.affectedRows > 0) {
+      res.status(200).send('User updated successfully');
+    } else {
+      res.status(404).send('User not found');
+    }
+  });
+});
+
+// API endpoint to delete a user
+app.delete('/users/:id', (req, res) => {
+  const userId = req.params.id;
+  const query = 'DELETE FROM users WHERE id = ?';
+  db.query(query, [userId], (err, result) => {
+    if (err) {
+      console.error('Error deleting user:', err);
+      res.status(500).send('Error deleting user');
+    } else if (result.affectedRows > 0) {
+      res.status(200).send('User deleted successfully');
+    } else {
+      res.status(404).send('User not found');
+    }
+  });
+});
+
 
 // Start the server
 const PORT = 5000; // You can change this port if needed

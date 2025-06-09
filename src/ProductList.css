@@ -15,11 +15,13 @@
   }
 
  div.navbar {
+    position: absolute;
     top: 0; /* Positions it at the top */
-    z-index: 1; /* Ensures it stays above other content */
+    left: 0;
+    z-index: 2; /* Ensures it stays above other content */
     width: 100%; /* Full width */
     margin: 0; /* Removes default margin */
-    padding: 0; /* Removes default padding */
+    padding: 10px 150px; /* Removes default padding */
  }
 
   ul.navbar-list {
@@ -28,8 +30,9 @@
     margin: 0;
     overflow: hidden;
     opacity: 0.97;
-    background-color: #E6E6FA;
+    background-color: #F0F0F0;
     width: 100%;
+    border-radius: 5px;
   }
   ul.navbar-list li {
     float: left;
@@ -37,6 +40,7 @@
   }
  
   div.start {
+    position: relative;
     background-image: url("download (2).jpg");
     background-size: cover;
     padding: 200px 50px;

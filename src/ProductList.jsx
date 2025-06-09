@@ -24,13 +24,16 @@ function ProductList() {
         let background = document.querySelector(".start");
         let slideIndex = 0;
 
+        // Set the initial background image
+        background.style.backgroundImage = "url('images/download (2).jpg')";
+
         setInterval(function () {
             if (slideIndex === 1) {
                 slideIndex = 0;
-                background.style.backgroundImage = "url('Twitch.jpg')";
+                background.style.backgroundImage = "url('images/Twitch.jpg')";
             } else {
                 slideIndex++;
-                background.style.backgroundImage = "url('download (2).jpg')";
+                background.style.backgroundImage = "url('images/download (2).jpg')";
             }
         }, 5000);
     };
@@ -51,19 +54,19 @@ function ProductList() {
             Category: [
                 {
                     topic: "Sport",
-                    image: "Soccer.jpg",
+                    image: "images/Soccer.jpg",
                     description: "Soccer is a team sport played between two teams of eleven players with a spherical ball. It is played by 250 million players in over 200 countries, making it the world's most popular sport.",
                 }
             ],
             News: [
                 {
                     name: "Ucl",
-                    image: "UCL.jpg",
+                    image: "images/UCL.jpg",
                     description: "The UEFA Champions League (UCL) is an annual club football competition organized by the UEFA and contested by top-division European clubs. It is one of the most prestigious tournaments in the world and the most prestigious club competition in European football.",
                 },
                 {
                     name: "Epl",
-                    image: "EPL.jpg",
+                    image: "images/EPL.jpg",
                     description: "The English Premier League (EPL) is the top tier of English football, featuring 20 clubs. It is known for its competitive nature and attracts top talent from around the world.",
                 }
             ]
@@ -72,19 +75,19 @@ function ProductList() {
             Category: [
                 {
                     topic: "Food",
-                    image: "food.jpg",
+                    image: "images/food.jpg",
                     description: "Food is any substance consumed to provide nutritional support for the body. It is usually of plant or animal origin and contains essential nutrients, such as carbohydrates, fats, proteins, vitamins, or minerals.",
                 }
             ],
             News: [
                 {
                     name: "Cuisine",
-                    image: "eat1.jpg",
+                    image: "images/eat1.jpg",
                     description: "Cuisine refers to a style or method of cooking, especially as characteristic of a particular country or region. It encompasses the ingredients, techniques, and traditions used in food preparation.",
                 },
                 {
                     name: "Recipe",
-                    image: "drink.jpg",
+                    image: "images/drink.jpg",
                     description: "A recipe is a set of instructions for preparing a particular dish, including a list of the ingredients required. Recipes can vary widely in complexity and style.",
                 }
             ]
@@ -92,19 +95,19 @@ function ProductList() {
             Category: [
                 {
                     topic: "Social Media",
-                    image: "SocialMedia.jpg",
+                    image: "images/SocialMedia.jpg",
                     description: "Social media refers to websites and applications that enable users to create and share content or participate in social networking. It has transformed the way people communicate and interact online.",
                 }
             ],
             News: [
                 {
                     name: "Instagram",
-                    image: "IG.jpg",
+                    image: "images/IG.jpg",
                     description: "Instagram is a photo and video-sharing social networking service owned by Facebook. It allows users to share photos and videos, follow other users, and engage with content through likes and comments.",
                 },
                 {
                     name: "TikTok",
-                    image: "Tiktok.jpg",
+                    image: "images/Tiktok.jpg",
                     description: "TikTok is a social media platform for creating, sharing, and discovering short music videos. It has gained immense popularity for its user-generated content and viral challenges.",
                 }
             ]
@@ -153,14 +156,14 @@ function ProductList() {
                                 {/* The slideshow/carousel */}
                                 <div className="carousel-inner">
                                     <div className="carousel-item active">
-                                        <img src="art1.jpg" alt="Los Angeles" className="d-block" style={{ width: "100%" }} />
+                                        <img src="images/art1.jpg" alt="Los Angeles" className="d-block" style={{ width: "100%" }} />
                                         <div className="carousel-caption">
                                             <h3>Art</h3>
                                             <p>The beauty of colors!</p>
                                         </div>
                                     </div>
                                     <div className="carousel-item">
-                                        <img src="art2.jpg" alt="Chicago" className="d-block" style={{ width: "100%" }} />
+                                        <img src="images/art2.jpg" alt="Chicago" className="d-block" style={{ width: "100%" }} />
                                         <div className="carousel-caption">
                                             <h3>Cycling</h3>
                                             <p>The sport of riding bicycles</p>
@@ -193,14 +196,14 @@ function ProductList() {
                                 {/* The slideshow/carousel */}
                                 <div className="carousel-inner">
                                     <div className="carousel-item active">
-                                        <img src="eat1.jpg" alt="Los Angeles" className="d-block" style={{ width: "100%" }} />
+                                        <img src="images/eat1.jpg" alt="Los Angeles" className="d-block" style={{ width: "100%" }} />
                                         <div className="carousel-caption">
                                             <h3>Food Cuisine</h3>
                                             <p>The art of preparing food!</p>
                                         </div>
                                     </div>
                                     <div className="carousel-item">
-                                        <img src="food.jpg" alt="Chicago" className="d-block" style={{ width: "100%" }} />
+                                        <img src="images/food.jpg" alt="Chicago" className="d-block" style={{ width: "100%" }} />
                                         <div className="carousel-caption">
                                             <p>So, what's your order?</p>
                                         </div>

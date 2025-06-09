@@ -25,7 +25,7 @@ img.logo {
   max-width: 100%; /* Ensures the image scales responsively */
   height: auto; /* Maintains aspect ratio */
   border-radius: 5px;
-  margin-top: 5%;
+  
   box-shadow: 0 4px 15px rgba(0, 0, 0, 0.5); /* Adds a shadow for better separation from the background */
 }
 img.logo:hover {
@@ -39,7 +39,6 @@ img.logoo {
 }
 
 div.sticky {
-  position: sticky;
   top: 0;
   z-index: 1;
   width: 100%;
@@ -47,7 +46,7 @@ div.sticky {
 }
 ul.horizontal {
   list-style-type: none; /* list-style-image, for image */
-  background-color: #E6E6FA;
+  background-color: #F0F0F0;
   padding: 0;
   margin: 0;
   overflow: hidden;
@@ -114,9 +113,9 @@ button.getstarted:hover {
 
 .footer-container {
   text-align: center;
-  padding: 10px 250px;
+  width: 100%;
+  padding: 2px;
   margin: 0;
   color: black;
-  background-color:#e29fef;
-  border-radius: 7px; /* Adds rounded corners */
+  background-color:#F0F0F0;
 }
