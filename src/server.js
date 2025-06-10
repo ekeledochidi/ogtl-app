@@ -2,10 +2,22 @@ import express from 'express';
 import mysql from 'mysql';
 import bodyParser from 'body-parser';
 import cors from 'cors';
+import jwt from 'jsonwebtoken';
+import session from 'express-session';
 
 const app = express();
 app.use(cors());
 app.use(bodyParser.json());
+
+// Add session middleware
+app.use(session({
+  secret: 'fingerprint_user', // use a strong secret in production
+  resave: false,
+  saveUninitialized: false,
+  cookie: { secure: false, httpOnly: true } // set secure: true if using HTTPS
+}));
+
+const JWT_SECRET = 'access_granted'; // use a strong secret in production
 
 // MySQL connection
 const db = mysql.createConnection({
@@ -46,20 +58,37 @@ app.post('/signin', (req, res) => {
       console.error('Error signing in user:', err);
       res.status(500).send('Error signing in user');
     } else if (results.length > 0) {
+      const user = results[0];
+      const token = jwt.sign({ id: user.id, username: user.username }, JWT_SECRET, { expiresIn: 60 * 60 });
+      req.session.authorization = token; // Store token in session
       res.status(200).json({ success: true, message: 'User signed in successfully' });
     } else {
       res.status(401).json({ success: false, message: 'Invalid username or password' });
     }
   });
 });
+
+// Middleware to check authentication
+function authenticateToken(req, res, next) {
+  const token = req.session.authorization;
+  if (!token) return res.status(401).json({ message: 'No token provided' });
+
+  jwt.verify(token, JWT_SECRET, (err, user) => {
+    if (err) return res.status(403).json({ message: 'Invalid token' });
+    req.user = user;
+    next();
+  });
+}
+
 // API endpoint to handle user sign-out
 app.post('/signout', (req, res) => {
   // Here you can handle sign-out logic, like clearing session data
   // For simplicity, we just send a success response
   res.status(200).json({ success: true, message: 'User signed out successfully' });
 });
+
 // API endpoint to get all users
-app.get('/users', (req, res) => {
+app.get('/users', authenticateToken, (req, res) => {
   const query = 'SELECT * FROM users';
   db.query(query, (err, results) => {
     if (err) {

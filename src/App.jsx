@@ -5,7 +5,6 @@ import ProductList from './ProductList';
 import Timeline from './Timeline';
 import axios from 'axios';
 
-
 function App() {
   const navigate = useNavigate();
 
@@ -13,23 +12,44 @@ function App() {
     navigate('/product-list');
   };
 
-  const [signUpData, setSignUpData] = useState({ username: '', password: '' });
+  // Shared state for both sign in and sign up
+  const [authData, setAuthData] = useState({ username: '', password: '' });
+  const [signInError, setSignInError] = useState('');
   const [signUpError, setSignUpError] = useState('');
   const [signUpSuccess, setSignUpSuccess] = useState('');
 
-  const handleSignUpChange = (e) => {
-    setSignUpData({ ...signUpData, [e.target.name]: e.target.value });
+  // Handle input changes for both actions
+  const handleAuthChange = (e) => {
+    setAuthData({ ...authData, [e.target.name]: e.target.value });
   };
 
+  // Handle Sign In
+  const handleSignIn = async (e) => {
+    e.preventDefault();
+    setSignInError('');
+    try {
+      const response = await axios.post('http://localhost:5000/signin', authData);
+      if (response.data.success) {
+        alert('Sign in successful!');
+        navigateToProductList();
+      } else {
+        setSignInError('Invalid username or password');
+      }
+    } catch (error) {
+      setSignInError('Sign in failed');
+    }
+  };
+
+  // Handle Sign Up
   const handleSignUp = async (e) => {
     e.preventDefault();
     setSignUpError('');
     setSignUpSuccess('');
     try {
-      const response = await axios.post('http://localhost:5000/signup', signUpData);
+      const response = await axios.post('http://localhost:5000/signup', authData);
       if (response.data.success) {
         setSignUpSuccess('Sign up successful! You can now sign in.');
-        setSignUpData({ username: '', password: '' });
+        setAuthData({ username: '', password: '' });
       } else {
         setSignUpError('Sign up failed. Try a different username.');
       }
@@ -40,14 +60,18 @@ function App() {
 
   return (
     <div className='background'>
-      <div class="sticky">
-       <ul class="horizontal">
+      <div className="sticky">
+        <ul className="horizontal">
           <img src="images/Direction.jpg" className="logoo" alt="web logo" />
-          <h5 style={{float: 'left', color: 'black', padding: '10px 5px'}}>Sw <span style={{fontSize: '12px'}}>-more than just a blog.</span></h5>
-          <li style={{float: 'right', color: 'black'}}>ENG<a href="mailto:ekeledochidiebere@gmail.com"><i class="fa-solid fa-envelope" style={{fontSize: '22px', paddingTop: '5px'}}></i></a></li>
-       </ul>
+          <h5 style={{ float: 'left', color: 'black', padding: '10px 5px' }}>
+            Sw <span style={{ fontSize: '12px' }}>-more than just a blog.</span>
+          </h5>
+          <li style={{ float: 'right', color: 'black' }}>
+            <button type="button" className='getstarted' onClick={navigateToProductList}>Get Started</button>
+          </li>
+        </ul>
       </div>
-      
+
       <video autoPlay loop muted playsInline className="video-background">
         <source src="videobg.mp4" type="video/mp4" />
       </video>
@@ -57,20 +81,20 @@ function App() {
           <h3>Welcome to our website!</h3>
           <br />
           <p className='write'>
-            Hi {signUpData.username}, We have designed this website to fit some of your interests. Browse
+            Hi {authData.username}, We have designed this website to fit some of your interests. Browse
             through our content, select the content of your interest, and add to your timeline.
-            Enjoy the view {signUpData.username}!
+            Enjoy the view {authData.username}!
           </p>
-          <h3>Sign Up</h3>
-          <form onSubmit={handleSignUp}>
-            <p className='write'>Please enter your username and password</p>
+          <h3>Sign In / Sign Up</h3>
+          <form>
+            <p className='write'>Please enter your username and password. <span style={{ fontSize: '13px' }}>Don't have an account?, click the sign up button.</span></p>
             <input
               type="text"
               name="username"
               placeholder="Username"
-              value={signUpData.username}
-              onChange={handleSignUpChange}
-              style={{padding: '5px', borderRadius: '5px', border: '0px', marginBottom: '10px'}}
+              value={authData.username}
+              onChange={handleAuthChange}
+              style={{ padding: '5px', borderRadius: '5px', border: '0px', marginBottom: '10px' }}
               required
             />
             <br />
@@ -78,15 +102,39 @@ function App() {
               type="password"
               name="password"
               placeholder="Password"
-              value={signUpData.password}
-              onChange={handleSignUpChange}
-              style={{padding: '5px', borderRadius: '5px', border: '0px', marginBottom: '10px'}}
+              value={authData.password}
+              onChange={handleAuthChange}
+              style={{ padding: '5px', borderRadius: '5px', border: '0px', marginBottom: '10px' }}
               required
             />
             <br />
-            <button type="submit" style={{marginRight: '15px', backgroundColor: '#D8BFD8', padding: '5px 15px', fontSize: '20px', borderRadius: '5px'}}>Sign Up</button>
-            <button type="button" className='getstarted' onClick={navigateToProductList}>Get Started</button>
-            {signUpError && <p style={{color: 'red'}}>{signUpError}</p>}
+            <button
+              type="button"
+              style={{
+                marginRight: '15px',
+                backgroundColor: '#D8BFD8',
+                padding: '5px 15px',
+                fontSize: '20px',
+                borderRadius: '5px'
+              }}
+              onClick={handleSignIn}
+            >
+              Sign In
+            </button>
+            <button
+              type="button"
+              style={{
+                backgroundColor: '#B0E0E6',
+                padding: '5px 15px',
+                fontSize: '20px',
+                borderRadius: '5px'
+              }}
+              onClick={handleSignUp}
+            >
+              Sign Up
+            </button>
+            {signInError && <p style={{ color: 'red' }}>{signInError}</p>}
+            {signUpError && <p style={{ color: 'red' }}>{signUpError}</p>}
             {signUpSuccess && <p style={{ color: 'green' }}>{signUpSuccess}</p>}
           </form>
         </div>
@@ -97,7 +145,7 @@ function App() {
       </div>
 
       <div className='footer-container'>
-        <p style={{fontWeight: 'bold'}}>Switch</p>
+        <p style={{ fontWeight: 'bold' }}>Switch</p>
       </div>
     </div>
   );
