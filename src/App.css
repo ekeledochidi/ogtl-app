@@ -119,3 +119,9 @@ button.getstarted:hover {
   color: black;
   background-color:#F0F0F0;
 }
+div.alert {
+  margin: 0 100px;
+  font-size: small;
+  box-shadow: none; /* Removes shadow for a cleaner look */
+  text-shadow: none; /* Removes text shadow for a cleaner look */
+}

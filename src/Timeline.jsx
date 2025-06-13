@@ -10,13 +10,9 @@ const Timeline = () => {
     <div className="timeline-container">
       <div className="navbar">
         <ul className="navbar-list">
-          <li>Switch</li>
+          <li style={{fontWeight:'bold'}}>Switch</li>
           <li>About</li>
-          <li>Selection</li>
-          <li>Timeline</li>
-          <li>
-            <i className="fa-solid fa-envelope"></i>
-          </li>
+          <li style={{float:'right', backgroundColor:'dodgerblue'}}>Timeline<i class="fa fa-folder" aria-hidden="true" style={{paddingLeft: '5px'}}></i></li>
         </ul>
       </div>
 

@@ -1,9 +1,10 @@
 import React from 'react';
+import './Footer.css'
 
 
 function Footer() {
     return(
-        <div className='container-fluid px-3' >
+        <div className='footer container-fluid px-3 gx-2' >
             <div className='col-xl-3 col-lg-3 col-md-3 col-sm-12 col-12' style={{float: 'left'}}>
                 <p>Sideways -yes! Sw.</p>
                 <p>All rights reserved</p>

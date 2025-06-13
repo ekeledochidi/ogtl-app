@@ -38,6 +38,9 @@
     float: left;
     padding: 10px 15px; /* Adds padding for spacing */
   }
+  ul.navbar-list li:hover {
+    cursor: pointer; /* Changes cursor to pointer on hover */
+  }
  
   div.start {
     position: relative;

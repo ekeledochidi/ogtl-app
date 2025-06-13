@@ -1,0 +1,29 @@
+ul.follow {
+    list-style-type: none; /* list-style-image, for image */
+    background-color: #f9f9f9;
+    padding: 0;
+    overflow: hidden;
+    opacity: 1;
+}
+ul.follow li {
+    float: left;
+}
+ul.follow li a {
+    display: inline-block;
+    color: black;
+    text-align: left;
+    padding: 9px 15px;
+    text-decoration: none;
+}
+ul.follow li a:hover {
+    background-color: black;
+    color: white;
+}
+p.popular {
+    background-color: black;
+    color: white;
+    padding: 15px;
+}
+.footer {
+    background-color: dimgray;
+}

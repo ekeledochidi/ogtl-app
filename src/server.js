@@ -39,6 +39,12 @@ db.connect((err) => {
 
 app.post('/signup', (req, res) => {
   const { username, password } = req.body;
+
+  // Validate input
+  if (!username || !password || username.trim() === '' || password.trim() === '') {
+    return res.status(400).json({ success: false, message: 'Username and password are required.' });
+  }
+
   const query = 'INSERT INTO users (username, password) VALUES (?, ?)';
   db.query(query, [username, password], (err, result) => {
     if (err) {
@@ -52,6 +58,10 @@ app.post('/signup', (req, res) => {
 // API endpoint to handle user sign-in
 app.post('/signin', (req, res) => {
   const { username, password } = req.body;
+  // Validate input
+  if (!username || !password || username.trim() === '' || password.trim() === '') {
+    return res.status(400).json({ success: false, message: 'Username and password are required.' });
+  }
   const query = 'SELECT * FROM users WHERE username = ? AND password = ?';
   db.query(query, [username, password], (err, results) => {
     if (err) {

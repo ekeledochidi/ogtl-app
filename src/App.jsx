@@ -27,6 +27,12 @@ function App() {
   const handleSignIn = async (e) => {
     e.preventDefault();
     setSignInError('');
+    setSignUpError('');
+    setSignUpSuccess('');
+    if (!authData.username || !authData.password) {
+      setSignInError('Username and password are required');
+      return;
+    }
     try {
       const response = await axios.post('http://localhost:5000/signin', authData);
       if (response.data.success) {
@@ -44,7 +50,12 @@ function App() {
   const handleSignUp = async (e) => {
     e.preventDefault();
     setSignUpError('');
+    setSignInError('');
     setSignUpSuccess('');
+    if (!authData.username || !authData.password) {
+      setSignUpError('Username and password are required');
+      return;
+    }
     try {
       const response = await axios.post('http://localhost:5000/signup', authData);
       if (response.data.success) {
@@ -73,7 +84,7 @@ function App() {
       </div>
 
       <video autoPlay loop muted playsInline className="video-background">
-        <source src="videobg.mp4" type="video/mp4" />
+        <source src="videot.mp4" type="video/mp4" />
       </video>
 
       <div className="container-fluid">
@@ -114,28 +125,44 @@ function App() {
                 marginRight: '15px',
                 backgroundColor: '#D8BFD8',
                 padding: '5px 15px',
-                fontSize: '20px',
+                fontSize: '18px',
                 borderRadius: '5px'
               }}
               onClick={handleSignIn}
             >
               Sign In
+              <i class="fa fa-user" aria-hidden="true" style={{paddingLeft:'2px'}}></i>
             </button>
             <button
               type="button"
               style={{
-                backgroundColor: '#B0E0E6',
+                backgroundColor: '#D8BFD8',
                 padding: '5px 15px',
-                fontSize: '20px',
+                fontSize: '18px',
                 borderRadius: '5px'
               }}
               onClick={handleSignUp}
             >
               Sign Up
             </button>
-            {signInError && <p style={{ color: 'red' }}>{signInError}</p>}
-            {signUpError && <p style={{ color: 'red' }}>{signUpError}</p>}
-            {signUpSuccess && <p style={{ color: 'green' }}>{signUpSuccess}</p>}
+            {signInError && (
+              <div className="alert alert-danger mt-2" role="alert">
+                <i class="fa fa-exclamation-triangle" aria-hidden="true"></i>
+                {signInError}
+              </div>
+            )}
+            {signUpError && (
+              <div className="alert alert-danger mt-2" role="alert">
+                <i className="fa fa-exclamation-triangle" aria-hidden="true"></i>
+                {signUpError}
+              </div>
+            )}
+            {signUpSuccess && (
+              <div className="alert alert-success mt-2" role="alert">
+                <i className="fa fa-check" aria-hidden="true"></i>
+                {signUpSuccess}
+              </div>
+            )}
           </form>
         </div>
 

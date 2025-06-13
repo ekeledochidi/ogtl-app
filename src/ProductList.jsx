@@ -54,7 +54,7 @@ function ProductList() {
             Category: [
                 {
                     topic: "Sport",
-                    image: "images/Soccer.jpg",
+                    image: "images/soccer-field.jpg",
                     description: "Soccer is a team sport played between two teams of eleven players with a spherical ball. It is played by 250 million players in over 200 countries, making it the world's most popular sport.",
                 }
             ],
@@ -75,7 +75,7 @@ function ProductList() {
             Category: [
                 {
                     topic: "Food",
-                    image: "images/food.jpg",
+                    image: "images/food1.jpg",
                     description: "Food is any substance consumed to provide nutritional support for the body. It is usually of plant or animal origin and contains essential nutrients, such as carbohydrates, fats, proteins, vitamins, or minerals.",
                 }
             ],
@@ -95,7 +95,7 @@ function ProductList() {
             Category: [
                 {
                     topic: "Social Media",
-                    image: "images/SocialMedia.jpg",
+                    image: "images/SocialMedia.png",
                     description: "Social media refers to websites and applications that enable users to create and share content or participate in social networking. It has transformed the way people communicate and interact online.",
                 }
             ],
@@ -118,11 +118,9 @@ function ProductList() {
         <div className="product-list">
             <div className="navbar">
                 <ul className="navbar-list">
-                    <li>Switch</li>
+                    <li style={{fontWeight:'bold'}}>Switch</li>
                     <li>About</li>
-                    <li>Selection</li>
-                    <li onClick={navigateToTimeline}>Timeline</li>
-                    <li><i className="fa-solid fa-envelope"></i></li>
+                    <li onClick={navigateToTimeline} style={{float:'right', backgroundColor:'dodgerblue'}}>Timeline<i class="fa fa-folder" aria-hidden="true" style={{paddingLeft: '5px'}}></i></li>
                 </ul>
             </div>
 
