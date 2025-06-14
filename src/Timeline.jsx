@@ -1,6 +1,7 @@
 import React from 'react';
 import { useSelector, useDispatch } from 'react-redux';
 import { removeItem } from './CartSlice';
+import Footer from './Footer';
 
 const Timeline = () => {
   const cart = useSelector((state) => state.cart.items);
@@ -16,33 +17,55 @@ const Timeline = () => {
         </ul>
       </div>
 
+      <video autoPlay loop muted playsInline className="videobackground container-fluid">
+        <source src="videow.mp4" type="video/mp4" />
+      </video>
+
       <div className="timeline-content">
         {cart.map((item, index) => (
           <div key={index} className="cart-item">
             {/* Display Category */}
-            <h3>Category</h3>
+            <h3 style={{textAlign: 'center', fontFamily: 'fantasy', fontWeight: 'lighter'}}>Category</h3>
+            <hr/>
             {item.category.map((category, catIndex) => (
-              <div key={catIndex}>
-                <h4>{category.topic}</h4>
-                <img src={category.image} alt={category.topic} />
-                <p>{category.description}</p>
+              <div key={catIndex} className='container-fluid' style={{padding:"10px 40px"}}>
+                <div className='row gx-4'>
+                  <img src={category.image} alt={category.topic} className='col-xxl-6 col-xl-6 col-lg-6 col-md-6 col-sm-6 col-12'/>
+                  <div className='col-xxl-6 col-xl-6 col-lg-6 col-md-6 col-sm-6 col-12'>
+                    <h4 style={{backgroundColor:'dimgray', borderRadius: '6px', textAlign: 'center', padding: '7px 20px', marginBottom: '30px'}}>{category.topic}</h4>
+                    <p>{category.description}</p>
+                    <br/><br/>
+                    <button onClick={() => dispatch(removeItem(item))}>Remove category</button>
+                    <a href={category.image} download="custom-filename.jpg" style={{paddingLeft: '20px'}}>
+                      <button type="button">Download Image</button>
+                    </a>
+                  </div>
+                </div>
               </div>
             ))}
 
             {/* Display News */}
-            <h3>News</h3>
-            {item.news.map((news, newsIndex) => (
-              <div key={newsIndex}>
-                <h4>{news.name}</h4>
-                <img src={news.image} alt={news.name} />
-                <p>{news.description}</p>
-              </div>
-            ))}
+            <div className='container-fluid'>
+                <div className="row gx-4 p-3">
+                  <h3>News</h3>
+                  {item.news.map((news, newsIndex) => (
+                    <div key={newsIndex} className='col-xl-6 col-lg-6 col-md-6 col-sm-12 col-12'>
+                      
+                      <img src={news.image} alt={news.name} width={600}/>
+                      <h4>{news.name}</h4>
+                      <p>{news.description}</p>
+                      <a href={news.image} download="news-filename.jpg">
+                        <button type="button">Download Image</button>
+                      </a>
+                    </div>
+                  ))}
+                </div>
+            </div>
 
-            <button onClick={() => dispatch(removeItem(item))}>Remove</button>
           </div>
         ))}
       </div>
+      <Footer />
     </div>
   );
 };

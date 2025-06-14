@@ -5,6 +5,8 @@ import './ProductList.css'; // Assuming you have a CSS file for styling
 import Timeline from './Timeline'; 
 import { addItem } from './CartSlice';
 import Footer from './Footer';
+import Carousel from 'react-bootstrap/Carousel';
+import 'bootstrap/dist/css/bootstrap.min.css';
 
 function ProductList() {
     const [addedToCart, setAddedToCart] = useState([]);
@@ -82,7 +84,7 @@ function ProductList() {
             News: [
                 {
                     name: "Cuisine",
-                    image: "images/eat1.jpg",
+                    image: "images/eat2.jpg",
                     description: "Cuisine refers to a style or method of cooking, especially as characteristic of a particular country or region. It encompasses the ingredients, techniques, and traditions used in food preparation.",
                 },
                 {
@@ -95,7 +97,7 @@ function ProductList() {
             Category: [
                 {
                     topic: "Social Media",
-                    image: "images/SocialMedia.png",
+                    image: "images/socialmedia.jpg",
                     description: "Social media refers to websites and applications that enable users to create and share content or participate in social networking. It has transformed the way people communicate and interact online.",
                 }
             ],
@@ -120,7 +122,7 @@ function ProductList() {
                 <ul className="navbar-list">
                     <li className='tran' style={{fontWeight:'bold'}}><span>Switch</span></li>
                     <li>About</li>
-                    <li onClick={navigateToTimeline} style={{float:'right', backgroundColor:'dodgerblue'}}>Timeline<i class="fa fa-folder" aria-hidden="true" style={{paddingLeft: '5px'}}></i></li>
+                    <li onClick={navigateToTimeline} style={{float:'right', backgroundColor:'dodgerblue'}}>Timeline<i className="fa fa-folder" aria-hidden="true" style={{paddingLeft: '5px'}}></i></li>
                 </ul>
             </div>
 
@@ -143,73 +145,44 @@ function ProductList() {
                 <div className="row gx-4">
                     <div className="col-xl-6 col-lg-6 col-md-6 col-sm-12 col-12">
                         <div className="mover">
-                            {/* Carousel */}
-                            <div id="demo1" className="carousel slide" data-bs-ride="carousel">
-                                {/* Indicators/dots */}
-                                <div className="carousel-indicators">
-                                    <button type="button" data-bs-target="#demo1" data-bs-slide-to="0" className="active"></button>
-                                    <button type="button" data-bs-target="#demo1" data-bs-slide-to="1"></button>
-                                </div>
-
-                                {/* The slideshow/carousel */}
-                                <div className="carousel-inner">
-                                    <div className="carousel-item active">
-                                        <img src="images/art1.jpg" alt="Los Angeles" className="d-block" style={{ width: "100%" }} />
-                                        <div className="carousel-caption">
-                                            <h3>Art</h3>
-                                            <p>The beauty of colors!</p>
-                                        </div>
-                                    </div>
-                                    <div className="carousel-item">
-                                        <img src="images/art2.jpg" alt="Chicago" className="d-block" style={{ width: "100%" }} />
-                                        <div className="carousel-caption">
-                                            <h3>Cycling</h3>
-                                            <p>The sport of riding bicycles</p>
-                                        </div>
-                                    </div>
-                                </div>
-
-                                {/* Left and right controls/icons */}
-                                <button className="carousel-control-prev" type="button" data-bs-target="#demo1" data-bs-slide="prev">
-                                    <span className="carousel-control-prev-icon"></span>
-                                </button>
-                                <button className="carousel-control-next" type="button" data-bs-target="#demo1" data-bs-slide="next">
-                                    <span className="carousel-control-next-icon"></span>
-                                </button>
-                            </div>
-                            
+                            {/* React Bootstrap Carousel - left/right transition */}
+                            <Carousel>
+                                <Carousel.Item>
+                                    <img src="images/art1.jpg" alt="Art" className="d-block w-100" />
+                                    <Carousel.Caption>
+                                        <h3>Art</h3>
+                                        <p>The beauty of colors!</p>
+                                    </Carousel.Caption>
+                                </Carousel.Item>
+                                <Carousel.Item>
+                                    <img src="images/art2.jpg" alt="Cycling" className="d-block w-100" />
+                                    <Carousel.Caption>
+                                        <h3>Cycling</h3>
+                                        <p>The sport of riding bicycles</p>
+                                    </Carousel.Caption>
+                                </Carousel.Item>
+                            </Carousel>
                         </div>
                     </div>
 
                     <div className="col-xl-6 col-lg-6 col-md-6 col-sm-12 col-12">
                         <div className="mover">
-                            {/* Carousel */}
-                            <div id="demo2" className="carousel slide carousel-fade" data-bs-ride="carousel" data-bs-interval="4000" style={{ zIndex: 0 }}>
-                                {/* Indicators/dots */}
-                                <div className="carousel-indicators">
-                                    <button type="button" data-bs-target="#demo2" data-bs-slide-to="0" className="active"></button>
-                                    <button type="button" data-bs-target="#demo2" data-bs-slide-to="1"></button>
-                                </div>
-
-                                {/* The slideshow/carousel */}
-                                <div className="carousel-inner">
-                                    <div className="carousel-item active">
-                                        <img src="images/eat1.jpg" alt="Los Angeles" className="d-block" style={{ width: "100%" }} />
-                                        <div className="carousel-caption">
-                                            <h3>Food Cuisine</h3>
-                                            <p>The art of preparing food!</p>
-                                        </div>
-                                    </div>
-                                    <div className="carousel-item">
-                                        <img src="images/food.jpg" alt="Chicago" className="d-block" style={{ width: "100%" }} />
-                                        <div className="carousel-caption">
-                                            <p>So, what's your order?</p>
-                                        </div>
-                                    </div>
-                                </div>
-                                
-                            </div>
-                            
+                            {/* React Bootstrap Carousel - fade in/out transition */}
+                            <Carousel fade interval={4000}>
+                                <Carousel.Item>
+                                    <img src="images/eat1.jpg" alt="Food Cuisine" className="d-block w-100" />
+                                    <Carousel.Caption>
+                                        <h3>Food Cuisine</h3>
+                                        <p>The art of preparing food!</p>
+                                    </Carousel.Caption>
+                                </Carousel.Item>
+                                <Carousel.Item>
+                                    <img src="images/food.jpg" alt="Order" className="d-block w-100" />
+                                    <Carousel.Caption>
+                                        <p>So, what's your order?</p>
+                                    </Carousel.Caption>
+                                </Carousel.Item>
+                            </Carousel>
                         </div>
                     </div>
                 </div>
