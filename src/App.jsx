@@ -96,16 +96,16 @@ function App() {
             through our content, select the content of your interest, and add to your timeline.
             Enjoy the view {authData.username}!
           </p>
-          <h3>Sign In / Sign Up</h3>
+          <h3>Sign In</h3>
           <form>
-            <p className='write'>Please enter your username and password. <span style={{ fontSize: '13px' }}>Don't have an account?, click the sign up button.</span></p>
+            <p className='write'>Please enter your username and password. <span style={{ fontSize: '13px', fontWeight: 'lighter'}}>Don't have an account?, click the sign up button.</span></p>
             <input
               type="text"
               name="username"
               placeholder="Username"
               value={authData.username}
               onChange={handleAuthChange}
-              style={{ padding: '5px', borderRadius: '5px', border: '0px', marginBottom: '10px' }}
+              style={{ padding: '5px', borderRadius: '5px', border: '0px', marginBottom: '10px', fontSize: '20px', width: '50%' }}
               required
             />
             <br />
@@ -115,7 +115,7 @@ function App() {
               placeholder="Password"
               value={authData.password}
               onChange={handleAuthChange}
-              style={{ padding: '5px', borderRadius: '5px', border: '0px', marginBottom: '10px' }}
+              style={{ padding: '5px', borderRadius: '5px', border: '0px', marginBottom: '10px', fontSize: '20px', width: '50%' }}
               required
             />
             <br />

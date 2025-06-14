@@ -25,5 +25,13 @@ p.popular {
     padding: 15px;
 }
 .footer {
-    background-color: dimgray;
+    background-color: lightgrey;
+    padding: 20px 0; 
+}
+img.me1 {
+    width: 100px;
+    height: 80px;
+    margin-bottom: 10px;
+    float: left;
+    padding-right: 20px;
 }

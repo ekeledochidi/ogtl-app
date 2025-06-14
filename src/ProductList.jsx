@@ -30,7 +30,7 @@ function ProductList() {
         setInterval(function () {
             if (slideIndex === 1) {
                 slideIndex = 0;
-                background.style.backgroundImage = "url('images/Twitch.jpg')";
+                background.style.backgroundImage = "url('images/Twitch1.jpg')";
             } else {
                 slideIndex++;
                 background.style.backgroundImage = "url('images/download (2).jpg')";
@@ -118,7 +118,7 @@ function ProductList() {
         <div className="product-list">
             <div className="navbar">
                 <ul className="navbar-list">
-                    <li style={{fontWeight:'bold'}}>Switch</li>
+                    <li className='tran' style={{fontWeight:'bold'}}><span>Switch</span></li>
                     <li>About</li>
                     <li onClick={navigateToTimeline} style={{float:'right', backgroundColor:'dodgerblue'}}>Timeline<i class="fa fa-folder" aria-hidden="true" style={{paddingLeft: '5px'}}></i></li>
                 </ul>
@@ -219,7 +219,7 @@ function ProductList() {
                 <p>Welcome to our newsblog! Unlike a traditional blog, we’ve created a shopping cart-like experience for news content. It’s all about making your news consumption enjoyable and interactive. You can browse through your favorite categories, select the stories that interest you, and easily add them to your personalized timeline. Once you’ve made your selections, you can dive deep into the content at your leisure in the timeline section. Have fun exploring the news in a whole new way!</p>
             </div>
 
-            <h4>News article</h4>
+            <h4 style={{paddingLeft:'20px'}}>News article</h4>
 
             <div className='product-grid container-fluid'>
                 <div className="row gx-4">
@@ -228,6 +228,7 @@ function ProductList() {
                         {item.Category.map((category, catIndex) => (
                             <div key={catIndex}>
                                 <img src={category.image} alt={category.topic} className="product-image" />
+                                <br/>
                                 <h5>{category.topic}</h5>
                                 <p>{category.description}</p>
                                 {cart.some((cartItem) =>

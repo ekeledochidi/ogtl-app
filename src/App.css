@@ -101,6 +101,7 @@ button.getstarted {
   border: none; /* Removes default border */
   border-radius: 5px;
   background-color: #E6E6FA;
+  margin: 5px 10px;
 }
 button.getstarted:hover {
   background-color: #D8BFD8; /* Changes background color on hover */

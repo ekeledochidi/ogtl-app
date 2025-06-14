@@ -72,3 +72,21 @@ img.product-image {
 img.product-image:hover {
     transform: scale(1.05); /* Scale up on hover */
 }
+.product-grid {
+    padding: 20px; /* Padding around the grid */
+}
+.tran span:after {
+    content: '\00bb';
+    opacity: 0;
+    top: 0;
+    right: -10px;
+    padding: 10px;
+    transition: 0.5s;
+}
+.tran:hover span {
+  padding-right: 15px;
+}
+.tran:hover span:after {
+  opacity: 1;
+  right: 0;
+}
